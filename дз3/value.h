@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+#include <stdexcept>
 
 namespace Value {
 
@@ -102,22 +103,50 @@ namespace Value {
         }
     };
 
-    Amper operator""_mA(long double milamper) {
+    inline Amper operator""_mA(long double milamper) {
         return Amper(milamper / 1000.0);
     }
-    Volt operator""_V(long double volt) {
+    inline Volt operator""_V(long double volt) {
         return Volt(volt);
     }
-    Ohm operator""_Ohm(long double ohm) {
+    inline Ohm operator""_Ohm(long double ohm) {
         return Ohm(ohm);
     }
-    Joule operator""_J(long double joule) {
+    inline Joule operator""_J(long double joule) {
         return Joule(joule);
     }
-    Watt operator""_W(long double watt) {
+    inline Watt operator""_W(long double watt) {
         return Watt(watt);
     }
-    Second operator""_s(long double second) {
+    inline Second operator""_s(long double second) {
         return Second(second);
+    }
+
+    inline Ohm operator/(const Volt& u, const Amper& i) {
+        return Ohm(u.Volt() / i.Amper());
+    }
+    inline Amper operator/(const Volt& u, const Ohm& r) {
+        return Amper(u.Volt() / r.Ohm());
+    }
+    inline Volt operator*(const Amper& i, const Ohm& r) {
+        return Volt(i.Amper() * r.Ohm());
+    }
+    inline Watt operator*(const Volt& u, const Amper& i) {
+        return Watt(u.Volt() * i.Amper());
+    }
+    inline Volt operator/(const Watt& p, const Amper& i) {
+        return Volt(p.Watt() / i.Amper());
+    }
+    inline Amper operator/(const Watt& p, const Volt& u) {
+        return Amper(p.Watt() / u.Volt());
+    }
+    inline Joule operator*(const Watt& p, const Second& s) {
+        return Joule(p.Watt() * s.Second());
+    }
+    inline Watt operator/(const Joule& a, const Second& s) {
+        return Watt(a.Joule() / s.Second());
+    }
+    inline Second operator/(const Joule& a, const Watt& p) {
+        return Second(a.Joule() / p.Watt());
     }
 };
