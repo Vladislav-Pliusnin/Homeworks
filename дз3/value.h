@@ -1,3 +1,5 @@
+#pragma once
+
 #include <iostream>
 #include <cmath>
 #include <stdexcept>
@@ -15,7 +17,7 @@ namespace Value {
                 throw std::invalid_argument("The current value must be a finite number.\n");
             }
         }
-        double amper() const {
+        double getValue() const {
             return A;
         }
     };
@@ -31,7 +33,7 @@ namespace Value {
                 throw std::invalid_argument("The voltage value must be a finite number.\n");
             }
         }
-        double volt() const {
+        double getValue() const {
             return V;
         }
     };
@@ -47,7 +49,7 @@ namespace Value {
                 throw std::invalid_argument("The current resistance value must be a finite number.\n");
             }
         }
-        double ohm() const {
+        double getValue() const {
             return O;
         }
     };
@@ -63,7 +65,7 @@ namespace Value {
                 throw std::invalid_argument("The value of work must be a finite number.\n");
             }
         }
-        double joule() const {
+        double getValue() const {
             return J;
         }
     };
@@ -79,7 +81,7 @@ namespace Value {
                 throw std::invalid_argument("The current power value must be a finite number.\n");
             }
         }
-        double watt() const {
+        double getValue() const {
             return W;
         }
     };
@@ -95,10 +97,10 @@ namespace Value {
                 throw std::invalid_argument("The current value must be a finite number.\n");
             }
             if(second <= 0) {
-                throw std::invalid_argument("The time value must be positive")
+                throw std::invalid_argument("The time value must be positive");
             }
         }
-        double second() const {
+        double getValue() const {
             return s;
         }
     };
@@ -123,30 +125,30 @@ namespace Value {
     }
 
     inline Ohm operator/(const Volt& u, const Amper& i) {
-        return Ohm(u.Volt() / i.Amper());
+        return Ohm(u.getValue() / i.getValue());
     }
     inline Amper operator/(const Volt& u, const Ohm& r) {
-        return Amper(u.Volt() / r.Ohm());
+        return Amper(u.getValue() / r.getValue());
     }
     inline Volt operator*(const Amper& i, const Ohm& r) {
-        return Volt(i.Amper() * r.Ohm());
+        return Volt(i.getValue() * r.getValue());
     }
     inline Watt operator*(const Volt& u, const Amper& i) {
-        return Watt(u.Volt() * i.Amper());
+        return Watt(u.getValue() * i.getValue());
     }
     inline Volt operator/(const Watt& p, const Amper& i) {
-        return Volt(p.Watt() / i.Amper());
+        return Volt(p.getValue() / i.getValue());
     }
     inline Amper operator/(const Watt& p, const Volt& u) {
-        return Amper(p.Watt() / u.Volt());
+        return Amper(p.getValue() / u.getValue());
     }
     inline Joule operator*(const Watt& p, const Second& s) {
-        return Joule(p.Watt() * s.Second());
+        return Joule(p.getValue() * s.getValue());
     }
     inline Watt operator/(const Joule& a, const Second& s) {
-        return Watt(a.Joule() / s.Second());
+        return Watt(a.getValue() / s.getValue());
     }
     inline Second operator/(const Joule& a, const Watt& p) {
-        return Second(a.Joule() / p.Watt());
+        return Second(a.getValue() / p.getValue());
     }
 };

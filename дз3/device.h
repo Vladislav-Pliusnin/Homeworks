@@ -1,4 +1,6 @@
-#include <iostream>
+#pragma once
+
+#include "measurement.h"
 #include <random>
 #include <chrono>
 #include <string>
@@ -36,10 +38,10 @@ namespace Devices {
             double error = (accuracy_class / 100.0) * max_range;
             auto time = std::chrono::system_clock::now();
             
-            Amper current(random_value);
+            Value::Amper current(random_value);
             return Measurement<Value::Amper>(current, error, time);
         }
-    }
+    };
 
     class Voltmeter {
 
@@ -75,7 +77,7 @@ namespace Devices {
             Value::Volt voltage(random_value);
             return Measurement<Value::Volt>(voltage, error, time);
         }
-    }
+    };
 
     class Multimeter {
 
@@ -110,6 +112,6 @@ namespace Devices {
             
             T value(random_value);
             return Measurement<T>(value, error, time);
-        }s
-    }
+        }
+    };
 };

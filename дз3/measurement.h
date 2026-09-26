@@ -33,18 +33,16 @@ class Measurement {
 template<typename T>
 struct std::formatter<Measurement<T>> {
     constexpr auto parse(std::format_parse_context& ctx) {
-        return ctx.end();
+        return ctx.begin();
     }
 
-    auto format(const Measurement<T>& m, std::format_context& ctx) const {
-        double val = m.getValue().getValue();
-        double err = m.getError();
-        auto time = m.getTime();
-        
+    template<typename FormatContext>
+    auto format(const Measurement<T>& m, FormatContext& ctx) const {
         return std::format_to(
             ctx.out(),
-            "Значение: {:.2f}, Погрешность: ±{:.2f}, Время: {:%Y-%m-%d %H:%M:%S}",
-            val, err, time
+            "{:.2f} +/- {:.2f}",
+            m.getValue().getValue(),
+            m.getError()
         );
     }
 };
