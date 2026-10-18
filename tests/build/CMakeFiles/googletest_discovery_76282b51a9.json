@@ -1,0 +1,17 @@
+{
+  "tests": 1,
+  "name": "AllTests",
+  "testsuites": [
+    {
+      "name": "DeliveryTest",
+      "tests": 1,
+      "testsuite": [
+        {
+          "name": "LocalOrderHasBaseFee",
+          "file": "D:\\inf\\tests\\test.cpp",
+          "line": 4
+        }
+      ]
+    }
+  ]
+}

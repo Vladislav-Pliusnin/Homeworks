@@ -1,0 +1,30 @@
+Start testing: Oct 12 13:41 RTZ 2 (çèìà)
+----------------------------------------------------------
+1/1 Testing: DeliveryTest.LocalOrderHasBaseFee
+1/1 Test: DeliveryTest.LocalOrderHasBaseFee
+Command: "C:/Program Files/CMake/bin/cmake.exe" "-D" "TEST_EXECUTABLE=D:/inf/tests/build/lesson_test.exe" "-D" "TEST_EXECUTOR=" "-D" "TEST_FILTER=DeliveryTest.LocalOrderHasBaseFee" "-D" "TEST_XML_OUTPUT=" "-D" "TEST_EXTRA_ARGS=" "-P" "C:/Program Files/CMake/share/cmake-4.4/Modules/GoogleTest/LaunchTest.cmake"
+Directory: D:/inf/tests/build
+"DeliveryTest.LocalOrderHasBaseFee" start time: Oct 12 13:41 RTZ 2 (çèìà)
+Output:
+----------------------------------------------------------
+Running main() from D:\inf\tests\build\_deps\googletest-src\googletest\src\gtest_main.cc
+Note: Google Test filter = DeliveryTest.LocalOrderHasBaseFee
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from DeliveryTest
+[ RUN      ] DeliveryTest.LocalOrderHasBaseFee
+[       OK ] DeliveryTest.LocalOrderHasBaseFee (0 ms)
+[----------] 1 test from DeliveryTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Passed.
+"DeliveryTest.LocalOrderHasBaseFee" end time: Oct 12 13:41 RTZ 2 (çèìà)
+"DeliveryTest.LocalOrderHasBaseFee" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 12 13:41 RTZ 2 (çèìà)
